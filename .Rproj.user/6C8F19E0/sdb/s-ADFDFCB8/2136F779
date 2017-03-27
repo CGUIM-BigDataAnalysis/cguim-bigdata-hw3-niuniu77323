@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"長庚大學 大數據分析方法 作業三\"\noutput: github_document\n---\n\n\n\n    \n\n## 網站資料爬取\n```{r}\n#這是R Code Chunk\n ##第一次使用要先安裝 install.packages(\"rvest\")\n##install.packages(\"rvest\")\nlibrary(rvest)\n\n\n\nHTML <-read_html(\"https://www.ptt.cc/bbs/Tech_Job/index.html\")\nbtnURL<-HTML %>% html_nodes(\"a[class='btn wide']\") %>% html_attr(\"href\")\nindexNum <- as.numeric(gsub(\"/bbs/Tech_Job/index|.html\",\" \",btnURL[2]))\n \ntotalPTT<-NULL\n  \n \nfor (i in (indexNum-4):(indexNum+1)){\n    #print(i)\n    HTML=paste(\"https://www.ptt.cc/bbs/Tech_Job/index\",i,\".html\",sep=\"\")\n    Title <- read_html(HTML) %>%html_nodes(\".title\") %>% html_text()\n   \n    PushNum<-read_html(HTML) %>%html_nodes(\".nrec\") %>% html_text()\n    \n    Author<-read_html(HTML) %>%html_nodes(\".author\") %>% html_text()\n   \n   \n   \n    \n\n    PTT<-data.frame(Title,PushNum,Author)\n   #dataframeAll<-rbind(dataframe1,dataframe2) \n    totalPTT<-rbind(totalPTT,PTT)\n \n \n   \n   }\n       View(totalPTT)\n \n    \n \n \n\n```\n\n## 爬蟲結果呈現\n```{r}\n#這是R Code Chunk\nknitr::kable(totalPTT)\n```\n\n## 解釋爬蟲結果 \n```{r}\ndim(totalPTT)\n\n\n```\n\n↑總共爬出108筆文章標題\n\n```{r}\n\nmax(\n    table(totalPTT$Author)\n\n)\n\n table(totalPTT$Author)\n```\n\n↑最多篇文章顯示九篇，作者顯示為\"-\"，\n回版上看發現作者為\"-\"是已被刪除的文章.....\n而第二多的是3篇，作者為\"wer11\"\n\n↑人工結論\n最有趣的地方是同意作者最多文章數竟然是被刪除的文章，另外工作版感覺不錯看呢!發現不可以面試放鳥公司，不然會被萬年黑名單\n",
+    "created" : 1490096375988.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "590963515",
+    "id" : "2136F779",
+    "lastKnownWriteTime" : 1490627584,
+    "last_content_update" : 1490627584197,
+    "path" : "~/GitHub/cguim-bigdata-hw3-niuniu77323/README.Rmd",
+    "project_path" : "README.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

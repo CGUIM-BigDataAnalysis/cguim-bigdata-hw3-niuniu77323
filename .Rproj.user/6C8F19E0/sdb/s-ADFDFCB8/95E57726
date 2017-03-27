@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1490606705417.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "95E57726",
+    "lastKnownWriteTime" : 7506763306374555497,
+    "last_content_update" : 1490606705417,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "39169440",
+        "caption" : "PTT",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=PTT&cache_key=39169440",
+        "displayedObservations" : "80",
+        "environment" : "",
+        "object" : "PTT",
+        "preview" : "0",
+        "totalObservations" : "80",
+        "variables" : "3"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
